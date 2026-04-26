@@ -26,6 +26,22 @@ function printInfo(name, age) {
     }
     return `Name: ${name}`;
 }
+// default parameter
+function calculateArea(radius, pi = 3.14) {
+    return pi * radius * radius;
+}
+// rest parameter
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+// arrow function
+const multiply = (x, y) => x * y;
+// const multiply = (x: number, y: number): number => {
+//   return x * y;
+// };
+// function types
+let calculate;
+calculate = multiply;
 var Color;
 (function (Color) {
     Color[Color["Red"] = 0] = "Red";
@@ -38,3 +54,31 @@ randomValue = 42;
 // Using unknown type is safer than any
 let unknownValue = "Unknown type";
 unknownValue = 10;
+let product1 = {
+    name: "Laptop",
+    price: 1000,
+    getdiscount(percentage) {
+        return this.price * (percentage / 100);
+    }
+};
+product1.getdiscount(10); // returns 100
+let user1 = { name: "Charlie", age: 25, email: "charlie@example.com", id: 1 };
+const username = 123;
+const username2 = "john_doe";
+const myDog = { name: "Buddy", breed: "Golden Retriever" };
+const person1 = { name: "Alice", age: 30 };
+function setstatus(status) {
+    return `Status: ${status}`;
+}
+setstatus("success");
+const myCircle = { color: "red", radius: 5 };
+// string literal types
+let direction;
+direction = "up"; // valid
+// type assertion
+let someValue = "Hello, TypeScript!";
+let strLength = someValue.length;
+let strLength2 = someValue.length;
+let strLength3 = "123";
+let str = strLength3.length;
+console.log("str", str);

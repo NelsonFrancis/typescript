@@ -160,3 +160,17 @@ type ApiResponse = SuccessResponse | ErrorResponse;
 let someValue: unknown = "Hello, TypeScript!";
 let strLength: number = (someValue as string).length;
 let strLength2: number = (<string>someValue).length;
+
+let strLength3: any = "123"; 
+let str: number = (<string>strLength3).length;
+console.log("str", str); // str 3
+
+
+// type guards
+function processValue(value: string | number): any{
+    if(typeof value==="string"){
+        return value.length;
+    }else{
+        return value.toFixed(2);
+    }
+}
