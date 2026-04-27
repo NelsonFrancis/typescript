@@ -81,4 +81,71 @@ let strLength = someValue.length;
 let strLength2 = someValue.length;
 let strLength3 = "123";
 let str = strLength3.length;
-console.log("str", str);
+console.log("str", str); // str 3
+// type guards
+function processValue(value) {
+    if (typeof value === "string") {
+        return value.length;
+    }
+    else {
+        return value.toFixed(2);
+    }
+}
+class Puppy {
+    bark() {
+        console.log("bhau");
+    }
+}
+class Kitten {
+    meao() {
+        console.log("meao");
+    }
+}
+function makeSound(animal) {
+    if (animal instanceof Puppy) {
+        animal.bark();
+    }
+    else {
+        animal.meao();
+    }
+}
+// class
+class Workers {
+    constructor(name, age, email) {
+        this.empname = name;
+        this.empage = age;
+        this.email = email;
+    }
+    introduce() {
+        return `Hi, I am ${this.empname} and my age is ${this.empage}`;
+    }
+    getName() {
+        return this.empname;
+    }
+    setName(name) {
+        this.empname = name;
+    }
+}
+class Employee {
+    constructor(id, ename, department) {
+        this.id = id;
+        this.ename = ename;
+        this.department = department;
+    }
+    getDetails() {
+        return `${this.ename} works in ${this.department}`;
+    }
+}
+let nelson = new Employee(101, "Nelson", "IT");
+console.log(nelson.getDetails());
+class Manager extends Employee {
+    constructor(id, ename, department, teamSize) {
+        super(id, ename, department);
+        this.teamSize = teamSize;
+    }
+    getTeamInfo() {
+        return `${this.ename} manages ${this.teamSize} employees`;
+    }
+}
+let nivya = new Manager(201, "Nivya", "Medical", 30);
+console.log(nivya.getTeamInfo());

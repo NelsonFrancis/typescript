@@ -193,3 +193,60 @@ function makeSound(animal: Puppy | Kitten){
         animal.meao();
     }
 }
+
+
+// class
+class Workers{
+    private empname: string;
+    protected empage: number;
+    public email: string;
+
+    constructor(name: string, age: number, email: string){
+        this.empname = name;
+        this.empage = age;
+        this.email = email;
+    }
+
+    public introduce(): string{
+        return `Hi, I am ${this.empname} and my age is ${this.empage}`
+    }
+
+    public getName(): string{
+        return this.empname
+    }
+
+    public setName(name: string): void{
+        this.empname = name
+    }
+}
+
+class Employee{
+    constructor(
+        private id: number,
+        public ename: string,
+        protected department: string
+    ){}
+
+    getDetails(): string{
+        return `${this.ename} works in ${this.department}`
+    }
+}
+let nelson = new Employee(101, "Nelson", "IT");
+console.log(nelson.getDetails());
+
+class Manager extends Employee{
+    constructor(
+        id: number,
+        ename: string,
+        department: string,
+        private teamSize: number
+    ){
+        super(id, ename, department)
+    }
+
+    getTeamInfo(): string{
+        return `${this.ename} manages ${this.teamSize} employees`
+    }
+}
+let nivya = new Manager(201, "Nivya", "Medical", 30);
+console.log(nivya.getTeamInfo());
