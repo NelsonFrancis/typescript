@@ -174,3 +174,22 @@ function processValue(value: string | number): any{
         return value.toFixed(2);
     }
 }
+
+
+class Puppy{
+    bark(){
+        console.log("bhau");
+    }
+}
+class Kitten{
+    meao(){
+        console.log("meao");
+    }
+}
+function makeSound(animal: Puppy | Kitten){
+    if(animal instanceof Puppy){
+        animal.bark();
+    }else{
+        animal.meao();
+    }
+}
