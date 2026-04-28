@@ -250,3 +250,18 @@ class Manager extends Employee{
 }
 let nivya = new Manager(201, "Nivya", "Medical", 30);
 console.log(nivya.getTeamInfo());
+
+
+// generic
+function identity<T>(name: T): T{
+    return name;
+}
+const nel = identity<string>("nel");
+const niv = identity<number>(123);
+
+
+function getFirstItem<T>(arg: T[]): T | undefined{
+    return arg[0]
+}
+const val1 = getFirstItem([1,2,3]);
+const val2 = getFirstItem(["one", "two"]);
