@@ -139,6 +139,34 @@ type ColorfulCircle = Colorful & Circle;
 const myCircle: ColorfulCircle = {color: "red", radius: 5};
 
 
+interface KeyValue<K, V> {
+    key: {
+        name: string,
+        key: K 
+    };
+    value: V;
+}
+let pair: KeyValue<number, string> = {
+    key: {
+        name: "age",    
+        key: 12
+    },
+    value: "twelve"
+};
+
+
+interface Lengthwise {
+    length: number;
+}
+function logLength<T extends Lengthwise>(item: T): T {
+    console.log(item.length);
+    return item;
+}
+logLength("Hello, TypeScript!"); // valid, string has length property
+logLength([1, 2, 3]); // valid, array has length property   
+
+
+
 // string literal types
 let direction: "up" | "down" | "left" | "right";
 direction = "up"; // valid
