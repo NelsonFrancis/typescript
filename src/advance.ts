@@ -80,3 +80,32 @@ enum apiStatus{
 }
 let apistatus: apiStatus = apiStatus.Loading;
 
+enum httpStatus{
+    OK = 200,
+    BadRequest = 400,
+    NotFound = 404
+}
+function getHttpStatus(status: httpStatus): void{
+    if(status === httpStatus.OK){
+        console.log("Request successful");
+    }
+}
+
+
+// promises
+function fetchData(id: number): Promise<{id: number, msg: string}>{
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve({id, msg: "Data fetched successfully"});
+        }, 1000);
+    });
+}
+
+async function getData(): Promise<void>{
+    try{
+        const data = await fetchData(1);
+        console.log(data);
+    }catch(error){
+        console.error("Error fetching data", error);
+    }
+}
