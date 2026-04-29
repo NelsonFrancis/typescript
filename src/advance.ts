@@ -52,3 +52,13 @@ let website: Page = {
     about: { title: "About", url: "/about" },
     contact: { title: "Contact", url: "/contact" }
 };
+
+
+// returntype of function
+function callApi(){
+    return{
+        status: "success",
+        id: 1,
+    }
+}
+type funcType = ReturnType<typeof callApi>;
