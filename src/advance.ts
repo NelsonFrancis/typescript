@@ -62,3 +62,21 @@ function callApi(){
     }
 }
 type funcType = ReturnType<typeof callApi>;
+
+
+// enum
+enum Direction{
+    Up = 7,
+    Down,
+    Left,
+    Right
+}
+let dir: Direction = Direction.Left;
+
+enum apiStatus{
+    Success = "success",
+    Error = "error",
+    Loading = "loading"
+}
+let apistatus: apiStatus = apiStatus.Loading;
+
